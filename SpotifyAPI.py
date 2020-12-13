@@ -32,7 +32,7 @@ def get_track_information():
     trackDuration = []
     track_artists = []
     
-    for i in range(len(playlist['items'])):
+    for i in range(len(playlist['items'])):    #What we did was go through the json element and pulled relevent consistent data
         track_names.append(playlist['items'][i]['track']['name'])
         trackType.append(playlist['items'][i]['track']['album']['album_type'])
         trackPopularity.append(playlist['items'][i]['track']['popularity'])
