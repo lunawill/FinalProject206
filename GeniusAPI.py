@@ -116,11 +116,10 @@ def word_count(song_lyrics):
 
 def setupSongTable(track_names, track_artists, song_lyrics, word_counts_list):
         
-    conn = sqlite3.connect('/Users/16169/Desktop/Misc/MusicStats.db')
+    conn = sqlite3.connect('/Users/williamluna/Desktop/FinalProject206/MusicStats.db')
     cur = conn.cursor()
 
     cur.execute('DROP TABLE IF EXISTS SpotifyAPI')
-    cur.execute('DROP TABLE IF EXISTS GeniusAPI')
     cur.execute('CREATE TABLE IF NOT EXISTS GeniusAPI (artist_id INTEGER PRIMARY KEY, song TEXT, artist TEXT, lyrics TEXT, word_count INTEGER)')
 
     for i in range(len(track_artists)):
@@ -136,18 +135,8 @@ def main():
     track_artists=get_track_artists()
     song_lyrics = get_lyrics()
     word_counts_list = word_count(song_lyrics)
-    print(len(track_names))
-    print(len(track_artists))
-    print(len(song_lyrics))
-    print(word_counts_list)
     setupSongTable(track_names, track_artists, song_lyrics, word_counts_list)
     
-    # dir = os.path.dirname(__file__)
-    # out_file = open(os.path.join(dir, "lyrics.txt"), "w", newline= '', encoding= 'utf-8')
-    
-    # for line in song_lyrics:
-    #     out_file.writelines(str(line))
-    # out_file.close()
 
 # Standard call for main() function
 if __name__ == '__main__':

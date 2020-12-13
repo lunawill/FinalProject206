@@ -3,7 +3,7 @@ import sqlite3
 import math
 from bs4 import BeautifulSoup
 
-conn = sqlite3.connect('/Users/williamluna/Desktop/SI206/206Final/MusicStats.db')
+conn = sqlite3.connect('/Users/williamluna/Desktop/FinalProject206/MusicStats.db')
 cur = conn.cursor()
 cur.execute('DROP TABLE IF EXISTS Hot100')
 cur.execute('CREATE TABLE IF NOT EXISTS Hot100 (position INTEGER, song TEXT, artist TEXT, numWeeks INTEGER, yearRatio INTEGER)')
